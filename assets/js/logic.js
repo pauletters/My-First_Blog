@@ -31,10 +31,9 @@ const readLocalStorage = function () {
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
 const storeLocalStorage = function (data) {
-  const blogData = readLocalStorage();
-  console.log(blogData);
-  blogData.push(data);
-  localStorage.setItem('blogData', JSON.stringify(blogData));
+  const blogItems = readLocalStorage();
+  blogItems.push(data);
+  localStorage.setItem('blogData', JSON.stringify(blogItems));
 };
 
 // ! Use the following function whenever you need to redirect to a different page
