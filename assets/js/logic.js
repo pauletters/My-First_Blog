@@ -20,14 +20,14 @@ function switchTheme(event) {
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 
-const readLocalStorage = function () {
-  const data = localStorage.getItem('blogData');
-  console.log('read storage', data);
-  if (!data) {
-    return [];
-  }
-  return data;
-};
+// const readLocalStorage = function () {
+//   const data = JSON.parse (localStorage.getItem('blogData'));
+//   console.log('read storage', data);
+//   if (!data) {
+//     return [];
+//   }
+//   return data;
+// };
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
 const storeLocalStorage = function (data) {

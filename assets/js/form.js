@@ -1,5 +1,17 @@
 // TODO: Create a variable that selects the form element
 const form = document.querySelector('form');
+const error = document.querySelector('#error');
+
+const readLocalStorage = function () {
+  const data = JSON.parse (localStorage.getItem('blogData'));
+  console.log('read storage', data);
+  if (!data) {
+    return [];
+  }
+  return data;
+};
+
+const initialData = readLocalStorage();
 
 if (form) {
 form.addEventListener('submit', function(event) {
@@ -14,11 +26,14 @@ form.addEventListener('submit', function(event) {
       title: title,
       content: content
     };
-    localStorage.setItem('blogData', JSON.stringify(blogData));
+
+    initialData.push(blogData);
+    console.log('initialData', initialData);
+    localStorage.setItem('blogData', JSON.stringify(initialData));
     redirectPage('blog.html');
     console.log(submit);
   } else {
-    alert('Please complete the form');
+    error.textContent = 'Please complete the form';
   }
 });
 }
